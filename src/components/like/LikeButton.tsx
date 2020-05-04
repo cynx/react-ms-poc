@@ -1,32 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import './LikeButton.css';
 
-type LikeState = {
-    likes: number
-};
 
-export default class LikeButton extends React.Component<{}, LikeState> {
-    state: LikeState = {
-        likes: 0
-    };
+const LikeButton: React.FC = () => {
+    const [likes, addLikes] =  useState<number | 0>(0)
 
-    addLikes = () => {
-        this.setState({
-            likes: this.state.likes + 1
-        });
-    }
-
-    render() {
-        const likes = this.state.likes;
-        return (
-            <button id="like-button" type="button" className="btn btn-light" onClick={this.addLikes}>
-                <span className="float-left">
-                    <FontAwesomeIcon icon={faHeart} style={likes ? {color : '#ff0057'} : {}} />
-                </span>
-                <span className="float-right">{likes}</span>
-            </button>
-        );
-    }
+    return (
+        <button id="like-button" type="button" className="btn btn-light" onClick={() => addLikes(likes + 1)}>
+            <span className="float-left">
+                <FontAwesomeIcon icon={faHeart} style={likes ? {color : '#ff0057'} : {}} />
+            </span>
+            <span className="float-right">{likes}</span>
+        </button>
+    );
+    
 }
+
+export default LikeButton;
