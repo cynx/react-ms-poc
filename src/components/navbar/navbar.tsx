@@ -8,7 +8,7 @@ type NavProps = {
 
 const Header: React.FC<NavProps> = props => {
     return (
-        <NavBar bg="primary" variant="dark">
+        <NavBar bg="primary" variant="dark" className="sticky-top">
             <NavBar.Brand>{props.appName}</NavBar.Brand>
             <nav className="ml-auto">
                 <LikeButton></LikeButton>
