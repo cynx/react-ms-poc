@@ -4,13 +4,13 @@ import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 import {TableRows} from './TableTypes';
 
-const TableComponent: React.FC<{rows: TableRows}> = ({rows}) => {
-    const headers = (rows && rows.length && Object.keys(rows[0])) || [];
+const TableComponent: React.FC<{data: TableRows}> = ({data}) => {
+    const headers = (data && data.length && Object.keys(data[0])) || [];
 
     return (
         <Table striped bordered hover >
             <TableHeader headers={headers}></TableHeader>
-            <TableBody headers={headers} rows={rows}></TableBody>
+            <TableBody headers={headers} rows={data}></TableBody>
         </Table>
     );
 };

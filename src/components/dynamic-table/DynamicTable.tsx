@@ -7,7 +7,7 @@ const DynamicTable: React.FC = () => {
    const UserData = useUserData();
 
     return (
-        <TableComponent rows={UserData}></TableComponent>
+        <TableComponent data={UserData}></TableComponent>
     );
 };
 
